@@ -12,7 +12,7 @@ Vue.component('review-list', {
           "{{ review.review }}"
           <br/>
 
-          Recommended: {{ review.recommend }}
+          추천: {{ review.recommend }}
 
         </li>
       </ul>

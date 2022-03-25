@@ -19,7 +19,7 @@ Vue.component('review-form', {
       </select>
   
 
-      <label for="recommend">이 물건을 샀나요?</label>
+      <label for="recommend">이 물건을 추천하나요?</label>
       <select id="recommend" v-model="recommend">
         <option>Yes</option>
         <option>No</option>
