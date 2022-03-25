@@ -1,0 +1,42 @@
+<div class="product-display">
+    <div class="product-container">
+        <!--이미지 추가-->
+      <div class="product-image">
+        <img v-bind:src="image">
+      </div>
+      <!-- 설명 -->
+      <div class="product-info">
+        <h1>{{ title }}</h1>
+
+        <p v-if="inStock">재고가 남아있습니다</p>
+        <p v-else>재고가 없습니다</p>
+
+        <p>금액: {{ shipping }}</p>
+        <!-- 데이터에서 들고오는 설명 -->
+        <ul>
+          <li v-for="detail in details">{{ detail }}</li>
+        </ul>
+
+        <!--색상 -->
+        <div 
+          v-for="(variant, index) in variants" 
+          :key="variant.id" 
+          @mouseover="updateVariant(index)" 
+          class="color-circle" 
+          :style="{ backgroundColor: variant.color }">
+        </div>
+        
+        <button 
+          class="button" 
+          :class="{ disabledButton: !inStock }" 
+          :disabled="!inStock" 
+          v-on:click="addToCart">
+          장바구니에 추가
+        </button>
+      </div>
+    </div>
+    <!--
+      <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+      <review-form @review-submitted="addReview"></review-form>
+      -->
+</div>
